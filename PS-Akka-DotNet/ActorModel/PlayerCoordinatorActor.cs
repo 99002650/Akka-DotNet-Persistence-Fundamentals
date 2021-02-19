@@ -19,11 +19,11 @@ namespace PS_Akka_DotNet.ActorModel
 
                 var @event = new PlayerCreated(command.PlayerName);
 
-                DisplayHelper.WriteInfo($"PlayerCoordinatorActor persisting PlayerCreated event for {command.PlayerName}");
+                DisplayHelper.WriteInfo($"PlayerCoordinatorActor persisting Player Created event for {command.PlayerName}");
 
                 Persist(@event, playerCreatedEvent =>
                 {
-                    DisplayHelper.WriteInfo($"PlayerCoordinatorActor persisted PlayerCreated event for {command.PlayerName}");
+                    DisplayHelper.WriteInfo($"PlayerCoordinatorActor persisted Player Created event for {command.PlayerName}");
 
                     Context.ActorOf(Props.Create(() =>
                         new PlayerActor(playerCreatedEvent.PlayerName, DefaultStartingHealth)), playerCreatedEvent.PlayerName);
