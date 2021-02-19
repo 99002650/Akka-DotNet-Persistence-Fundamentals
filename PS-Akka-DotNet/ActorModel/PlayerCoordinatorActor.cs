@@ -32,7 +32,7 @@ namespace PS_Akka_DotNet.ActorModel
 
             Recover<PlayerCreated>(playerCreatedEvent =>
             {
-                DisplayHelper.WriteInfo($"PlayerCoordinatorActor replaying PlayerCreated event for {playerCreatedEvent.PlayerName}");
+                DisplayHelper.WriteInfo($"PlayerCoordinatorActor replaying Player Created event for {playerCreatedEvent.PlayerName}");
 
                 Context.ActorOf(Props.Create(() =>
                         new PlayerActor(playerCreatedEvent.PlayerName, DefaultStartingHealth)), playerCreatedEvent.PlayerName);
